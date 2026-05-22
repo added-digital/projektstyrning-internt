@@ -321,7 +321,7 @@ export default function PlaneringPage() {
   const [assigneeFilter, setAssigneeFilter] = useState<CommentAssignee>("");
   const [customerFilter, setCustomerFilter] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<Set<ProjectStatus>>(
-    () => new Set(["active", "paused"]),
+    () => new Set(["active"]),
   );
   const [newProjectFor, setNewProjectFor] = useState<string | null>(null);
   const [newCustomerOpen, setNewCustomerOpen] = useState(false);
