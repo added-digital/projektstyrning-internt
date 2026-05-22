@@ -1,0 +1,209 @@
+{
+  "client": "Isaksson",
+  "projects": [
+    {
+      "id": "p-1778684393624-oj3ny",
+      "name": "Ny hemsida",
+      "template": "custom",
+      "status": "active",
+      "startDate": "2026-05-13",
+      "endDate": "2026-06-12",
+      "enabledSections": [
+        6
+      ],
+      "activeSection": 7,
+      "answers": {
+        "7-text": "Designbrief – Isaksson Bemanning\n\nUtmaningen\n\nTrafiken till bemanningssidan är god. Konverteringen är inte det. För få besökare går från intresse till förfrågan, och problemet är inte tekniskt – det är positionellt. Sidan säger mycket men bevisar lite, känns mer som en leverantör än som ett företag man bygger relation med, och tappar fokus mellan rekrytering, interim och bemanning på samma yta. För en upphandlare som jämför 2–3 aktörer parallellt blir det otydligt varför just Isaksson.\n\nPosition\n\nIsaksson är specialisten med lokal förankring. Konkret där Wise är abstrakt, djup där OnePartnerGroup är bred, mogen där Academic Work är ung.\nMellan konkurrenternas positioner finns en obesatt plats: specialisten som finns på orten, kan branschen på riktigt och svarar snabbt. Det är där Isaksson hör hemma – och det är en medveten anti-position mot Wise nya rebrand. För den kund som inte vill ha en konsultbyrå-känsla utan vill ha någon som kan skillnaden på en drifttekniker och en fastighetstekniker.\nKärnidé: Vi kan branschen ni jobbar i. Vi finns där ni finns. Vi svarar inom 48 timmar.\n\nDesignkonceptet: Pricken och rutan\n\nIsakssons logotyp har redan konceptet. Den svarta pricken omgiven av färgade rutor har levt sedan 2005 utan att någon brytt sig om att fråga vad den betyder. Vi aktiverar den nu.\nPricken är Isaksson. Aktören, specialisten, den som rör sig. Rutan är kunden. Branschen, orten, världen där affären sker. Mötet mellan prick och ruta är hela erbjudandet. Inom 48 timmar.\nGreppet är inte påklistrat – det är en aktivering av varumärkets egen visuella egendom. Det differentierar Isaksson från varenda konkurrent eftersom det springer ur en logotyp som bara Isaksson har. Det är också operativt: konceptet blir grunden för färgsystem, navigation och hur besökaren rör sig genom sidan.\n\nVisuellt system\n\nFärgerna får funktion. Logotypens palett blir en ordbok där varje specialistområde äger en färg konsekvent genom hela sidan. När besökaren ser blå förstår de Fastighet, ser de gul förstår de Bygg. Färgsystemet blir navigation utan att vi skriver ut det – något ingen konkurrent har.\nMatrisen blir signaturen. Sex rutor i ett grid, var och en med sin branschfärg, pricken markerar var Isaksson är aktiv just nu. Hela erbjudandet blir läsbart på en blick. Matrisen återkommer i hero, i specialistsektioner, i case och i navigation som varumärkets visuella röda tråd.\nDisciplin före lekfullhet. Färgerna används som taggar och accenter, aldrig som stora bakgrundsytor. Bas är varm benvit, primär text och rubriker i logotypens mörkblå. Det gör paletten rik utan att bli rörig – avgörande för en B2B-målgrupp som värdesätter trygghet.\nBefintliga råvaror, ny användning. Sofia Pro och Isakssons färgpalett behålls oförändrade. Distinktionen byggs genom nya kombinationer, nya proportioner och ny disciplin – inte genom nytt material. Det minskar projektets risk markant och säkerställer att befintliga kunder känner igen Isaksson direkt.\n\nHur designen ökar konverteringen\n\nKonverteringsproblemet har tre rötter, och konceptet löser alla tre.\nBesökaren förstår inte bredden. Idag växlar sidan mellan rekrytering, interim, bemanning och chefsrekrytering på samma yta. Den nya matrisen visar hela bemanningserbjudandet på en skärm – sex specialistområden, tre orter, allt samtidigt. Bredden förstås på tre sekunder utan scroll.\nBesökaren litar inte på löftet. ”48 timmar” är lätt att påstå, svårt att bevisa. Genom att låta pricken markera senast tillsatta roll med riktiga tidsstämplar bevisas löftet med konkreta data istället för marknadsföringsspråk. Tidsstämpeln blir både signatur och bevis.\nBesökaren känner inte vem de pratar med. Sidan är anonym idag. Den nya introducerar konsultchefen på besökarens ort tidigt – ansikte, namn, hur länge personen varit kvar. Tröskeln att fylla i formuläret sänks dramatiskt när besökaren ser vem som tar emot förfrågan.\nTillsammans förkortar dessa beslutsvägen från ”intressant, kanske” till ”jag begär offert nu”. För en upphandlare som tar in offerter parallellt blir Isaksson den sida som är enklast att begära från – och som ser ut att veta vad de gör.\n\nHierarki\n\nKundcase och konsultchefer flyttas till övre tredjedelen. Prislogik – vad ingår i timpriset – synliggörs högt upp istället för att gömmas i FAQ. 48h-löftet syns på varje sektion via tidsstämpel eller microcopy. Process-sektionen kortas från 12 steg till 4. Jubileumsbanners överst på sidan tas bort permanent.\n\nVad vi medvetet undviker\n\nEngelska headlines. Abstrakta löften. Generiska svgrepo-ikoner. Stockfoton och handslag. ”Vi är experter på”-språk. Gradienter och drop shadows. Färger eller typsnitt utanför Isakssons profil.\n\nBildspråk\n\nEndast egenproducerade porträtt och miljöbilder från Isakssons värld. Förvaltare i trapphus, drifttekniker i undercentraler, möten kring ritningar, konsultchefer på sina kontor. Porträtt i ögonhöjd. Miljöbilder med människa eller spår av människa.\n\nRisker\n\nStörsta risken är SEO-tapp. Innehållsstruktur och rubriker måste utvecklas parallellt med designen, prioriterade söktermer identifieras innan h1 låses. Näst största är att befintliga kunder inte känner igen Isaksson – därför använder vi befintliga råvaror i ny disciplin, inte ett helt nytt varumärke. Tredje risken är att färgsystemet upplevs som för lekfullt för B2B – lösningen är disciplinen att använda färgerna som system, aldrig som dekoration.\n\nFramgång mäts i\n\nFler förfrågningar via formuläret jämfört med baseline. Lägre bounce på bemanningssidan. Bibehållen eller förbättrad SEO-position på prioriterade söktermer. Kvalitativ feedback från befintliga kunder att Isaksson känns som sig själva – fast bättre.\n\nDesignens enda budskap\n\nIsaksson är bemanningsföretaget som kan min bransch, finns på min ort och svarar snabbt – och det syns på allt de gör."
+      },
+      "checklist": [
+        {
+          "id": "domain",
+          "label": "Domän + DNS konfigurerat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "ssl",
+          "label": "SSL aktiverat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "analytics",
+          "label": "Analytics installerat och testat",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo",
+          "label": "SEO meta-taggar + sitemap.xml på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "og",
+          "label": "Open Graph-bilder + favicon",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "gdpr",
+          "label": "Cookie-banner / GDPR-text klar",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "forms",
+          "label": "Formulär kopplade till rätt mottagare",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "404",
+          "label": "404-sida testad",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "redirects",
+          "label": "Redirects från gamla URL:er på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "backup",
+          "label": "Backup-strategi konfigurerad",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "perf",
+          "label": "Lighthouse / Core Web Vitals godkända",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "browsers",
+          "label": "Testat i Chrome, Safari, Firefox, mobil",
+          "done": false,
+          "category": "Utveckling"
+        }
+      ],
+      "phases": [
+        {
+          "id": "ph-1778846144630-v7vup",
+          "type": "Strategi",
+          "label": "",
+          "startDate": "2026-05-11",
+          "endDate": "2026-05-17",
+          "comments": [
+            {
+              "id": "cm-1778855831945-14rfe",
+              "text": "Ta fram designkoncept",
+              "category": "Strategi",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": true
+            }
+          ]
+        },
+        {
+          "id": "ph-1778846144630-dbc9n",
+          "type": "Content",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-22",
+          "comments": [
+            {
+              "id": "cm-1778854531435-n7o1d",
+              "text": "Färdigställa innehåll och content struktur till bemanningssidan",
+              "category": "Content",
+              "assignees": [
+                "Gustav Lindwall"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778846144630-lff5k",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-23",
+          "comments": [
+            {
+              "id": "cm-1778854693951-8hdoq",
+              "text": "Färdigställa design till Bemanningssidan",
+              "category": "Design",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778846144630-76ou4",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-05-25",
+          "endDate": "2026-06-05",
+          "comments": [
+            {
+              "id": "cm-1779035235517-r3wje",
+              "text": "Utveckling av totalt 9 undersidor",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778856357445-wbaco",
+          "type": "Content",
+          "label": "",
+          "startDate": "2026-05-28",
+          "endDate": "2026-05-29",
+          "comments": [
+            {
+              "id": "cm-1778856387687-xe3a4",
+              "text": "Färdigställa Innehållstruktur till övriga undersidor",
+              "category": "Content",
+              "assignees": [
+                "Gustav Lindwall"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778856426488-cgybh",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-30",
+          "endDate": "2026-05-30",
+          "comments": [
+            {
+              "id": "cm-1778856447266-jbguj",
+              "text": "Färdigställa design till övriga undersidor",
+              "category": "Design",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
+      "weeklyNotes": [],
+      "allocations": [],
+      "updatedAt": "2026-05-13T14:43:50.960Z"
+    }
+  ],
+  "activeProjectId": "p-1778684393624-oj3ny",
+  "updatedAt": "2026-05-22T14:39:14.648Z"
+}

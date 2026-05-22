@@ -1,0 +1,448 @@
+{
+  "client": "Saldo",
+  "projects": [
+    {
+      "id": "p-1778685085206-izmya",
+      "name": "Ny hemsida",
+      "template": "webb",
+      "status": "active",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-31",
+      "enabledSections": [
+        6
+      ],
+      "activeSection": 7,
+      "answers": {},
+      "checklist": [
+        {
+          "id": "domain",
+          "label": "Domän + DNS konfigurerat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "ssl",
+          "label": "SSL aktiverat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "analytics",
+          "label": "Analytics installerat och testat",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo",
+          "label": "SEO meta-taggar + sitemap.xml på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "og",
+          "label": "Open Graph-bilder + favicon",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "gdpr",
+          "label": "Cookie-banner / GDPR-text klar",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "forms",
+          "label": "Formulär kopplade till rätt mottagare",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "404",
+          "label": "404-sida testad",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "redirects",
+          "label": "Redirects från gamla URL:er på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "backup",
+          "label": "Backup-strategi konfigurerad",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "perf",
+          "label": "Lighthouse / Core Web Vitals godkända",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "browsers",
+          "label": "Testat i Chrome, Safari, Firefox, mobil",
+          "done": false,
+          "category": "Utveckling"
+        }
+      ],
+      "phases": [
+        {
+          "id": "ph-1778854071207-9gaxd",
+          "type": "Strategi",
+          "label": "",
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-27",
+          "comments": [
+            {
+              "id": "cm-1778854822424-b87qh",
+              "text": "Ta fram marknadsplan och målsättning för 2026",
+              "category": "Strategi",
+              "assignees": [
+                "Per Albin Wilhelmsson",
+                "Gustav Lindwall"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778854097966-krp3g",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-29",
+          "comments": [
+            {
+              "id": "cm-1779035352089-dsp4q",
+              "text": "Designa för Saldos ny hemsida",
+              "category": "Design",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778854117601-kzh96",
+          "type": "Content",
+          "label": "",
+          "startDate": "2026-05-21",
+          "endDate": "2026-05-26",
+          "comments": [
+            {
+              "id": "cm-1779035279182-1fxmx",
+              "text": "Ta fram innehåll till Saldos samtliga undersidor",
+              "category": "Content",
+              "assignees": [
+                "Gustav Lindwall"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1779035286635-e0n9w",
+          "type": "Content",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-24",
+          "comments": [
+            {
+              "id": "cm-1779035311333-8lxaf",
+              "text": "Publicera SoMe poster",
+              "category": "Content",
+              "assignees": [
+                "Gustav Lindwall",
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1779035364856-ydblr",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-06-01",
+          "endDate": "2026-06-30",
+          "comments": [
+            {
+              "id": "cm-1779035452572-s5xhi",
+              "text": "Utveckling ny hemsida",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
+      "weeklyNotes": [],
+      "allocations": [],
+      "updatedAt": "2026-05-13T14:23:23.629Z"
+    },
+    {
+      "id": "p-1778853395362-eum5b",
+      "name": "Utveckling",
+      "template": "webb",
+      "status": "active",
+      "startDate": "",
+      "endDate": "",
+      "enabledSections": [
+        6
+      ],
+      "activeSection": 7,
+      "answers": {},
+      "checklist": [
+        {
+          "id": "seo-meta",
+          "label": "Meta-titel och meta-beskrivning på alla sidor",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-og",
+          "label": "Open Graph-bilder för delning",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-sitemap",
+          "label": "sitemap.xml + robots.txt på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-redirects",
+          "label": "301-redirects från gamla URL:er",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-schema",
+          "label": "Strukturerad data (schema.org) där relevant",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-gsc",
+          "label": "Google Search Console verifierad och kopplad",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-analytics",
+          "label": "Analytics installerat — sidvisningar och events",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "des-figma",
+          "label": "Designkomponenter slutgranskade i Figma",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-responsive",
+          "label": "Mobil + desktop genomgångna i alla vyer",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-a11y",
+          "label": "Tillgänglighet: kontrast, fokusring, tangentbordsnavigation",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-states",
+          "label": "Loading-, tom- och felstatusar designade",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-404",
+          "label": "404-sida designad",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-system",
+          "label": "Konsekvent typografi och spacing i komponentbiblioteket",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "con-copy",
+          "label": "Alla texter korrekturlästa och godkända",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-tone",
+          "label": "Tonalitet konsekvent över sidor och komponenter",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-images",
+          "label": "Bilder optimerade (storlek + WebP/AVIF)",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-alt",
+          "label": "Alt-text på alla bilder",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-favicon",
+          "label": "Favicon i alla format",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-legal",
+          "label": "Cookies, integritetspolicy och övriga juridiska sidor",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-404copy",
+          "label": "Copy för 404-sida och felmeddelanden klar",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "dev-domain",
+          "label": "Domän + DNS konfigurerat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-ssl",
+          "label": "SSL aktiverat och förnyas automatiskt",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-comp",
+          "label": "Alla komponenter renderar korrekt i alla mallar",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-forms",
+          "label": "Formulär kopplade till rätt mottagare och testade",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-perf",
+          "label": "Lighthouse / Core Web Vitals godkända",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-browsers",
+          "label": "Testat i Chrome, Safari, Firefox + mobil",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-stage",
+          "label": "Stage- och prodmiljöer tydligt separerade",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-backup",
+          "label": "Backup och versionshantering på plats",
+          "done": false,
+          "category": "Utveckling"
+        }
+      ],
+      "phases": [
+        {
+          "id": "ph-1778854304844-wn0yv",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-15",
+          "comments": [
+            {
+              "id": "cm-1778856278949-jq8pd",
+              "text": "Färdigställa funktioner inför lansering av OS",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": true
+            }
+          ]
+        },
+        {
+          "id": "ph-1778856200561-airb7",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-22",
+          "comments": [
+            {
+              "id": "cm-1778856298853-m29mf",
+              "text": "Arbete med rådgivningsfunktion",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1779035622939-2vhcg",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-05-26",
+          "endDate": "2026-06-26",
+          "comments": [
+            {
+              "id": "cm-1779035653465-lcp82",
+              "text": "Planerat arbete med OS",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst",
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
+      "weeklyNotes": [],
+      "allocations": [
+        {
+          "id": "al-1779457119876-0-c2m8y",
+          "member": "Albin Herbst",
+          "hoursPerWeek": 20,
+          "startDate": "2026-05-08",
+          "endDate": "2026-12-31"
+        },
+        {
+          "id": "al-1779458968172-tdii8",
+          "member": "Per Albin Wilhelmsson",
+          "hoursPerWeek": 4,
+          "startDate": "2026-05-08",
+          "endDate": "2027-01-03"
+        }
+      ]
+    }
+  ],
+  "activeProjectId": "p-1778853395362-eum5b",
+  "updatedAt": "2026-05-22T14:30:49.120Z"
+}

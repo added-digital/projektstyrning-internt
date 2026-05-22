@@ -53,9 +53,8 @@ export async function PUT(req: Request, { params }: Ctx) {
     const newSlug = slugify(client);
     const data: CustomerData = {
       client,
-      date: body.date ?? "",
-      activeSection: body.activeSection ?? 1,
-      answers: body.answers ?? {},
+      projects: body.projects ?? [],
+      activeProjectId: body.activeProjectId ?? null,
     };
 
     const saved = await writeCustomer(newSlug, data);

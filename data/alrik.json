@@ -1,0 +1,220 @@
+{
+  "client": "Alrik",
+  "projects": [
+    {
+      "id": "p-1779036482529-hinxi",
+      "name": "Löpande arbete",
+      "template": "webb",
+      "status": "done",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-31",
+      "enabledSections": [
+        6
+      ],
+      "activeSection": 7,
+      "answers": {},
+      "checklist": [
+        {
+          "id": "seo-meta",
+          "label": "Meta-titel och meta-beskrivning på alla sidor",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-og",
+          "label": "Open Graph-bilder för delning",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-sitemap",
+          "label": "sitemap.xml + robots.txt på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-redirects",
+          "label": "301-redirects från gamla URL:er",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-schema",
+          "label": "Strukturerad data (schema.org) där relevant",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-gsc",
+          "label": "Google Search Console verifierad och kopplad",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo-analytics",
+          "label": "Analytics installerat — sidvisningar och events",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "des-figma",
+          "label": "Designkomponenter slutgranskade i Figma",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-responsive",
+          "label": "Mobil + desktop genomgångna i alla vyer",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-a11y",
+          "label": "Tillgänglighet: kontrast, fokusring, tangentbordsnavigation",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-states",
+          "label": "Loading-, tom- och felstatusar designade",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-404",
+          "label": "404-sida designad",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "des-system",
+          "label": "Konsekvent typografi och spacing i komponentbiblioteket",
+          "done": false,
+          "category": "Design"
+        },
+        {
+          "id": "con-copy",
+          "label": "Alla texter korrekturlästa och godkända",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-tone",
+          "label": "Tonalitet konsekvent över sidor och komponenter",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-images",
+          "label": "Bilder optimerade (storlek + WebP/AVIF)",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-alt",
+          "label": "Alt-text på alla bilder",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-favicon",
+          "label": "Favicon i alla format",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-legal",
+          "label": "Cookies, integritetspolicy och övriga juridiska sidor",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "con-404copy",
+          "label": "Copy för 404-sida och felmeddelanden klar",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "dev-domain",
+          "label": "Domän + DNS konfigurerat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-ssl",
+          "label": "SSL aktiverat och förnyas automatiskt",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-comp",
+          "label": "Alla komponenter renderar korrekt i alla mallar",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-forms",
+          "label": "Formulär kopplade till rätt mottagare och testade",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-perf",
+          "label": "Lighthouse / Core Web Vitals godkända",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-browsers",
+          "label": "Testat i Chrome, Safari, Firefox + mobil",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-stage",
+          "label": "Stage- och prodmiljöer tydligt separerade",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "dev-backup",
+          "label": "Backup och versionshantering på plats",
+          "done": false,
+          "category": "Utveckling"
+        }
+      ],
+      "phases": [
+        {
+          "id": "ph-1779036524976-0y2aw",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-22",
+          "comments": [
+            {
+              "id": "cm-1779037112338-0ahjq",
+              "text": "Arbete med Cockpit 2.0",
+              "category": "Design",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
+      "weeklyNotes": [],
+      "allocations": [
+        {
+          "id": "al-1779440109440-0-pzepy",
+          "member": "Per Albin Wilhelmsson",
+          "hoursPerWeek": 5,
+          "startDate": "2026-05-22",
+          "endDate": "2026-05-24"
+        }
+      ]
+    }
+  ],
+  "activeProjectId": "p-1779036482529-hinxi",
+  "updatedAt": "2026-05-22T13:23:02.194Z"
+}

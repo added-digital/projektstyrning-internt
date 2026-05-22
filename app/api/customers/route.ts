@@ -10,7 +10,7 @@ export async function GET() {
 }
 
 /**
- * Create a new customer file. Body: { client: string, date?: string }
+ * Create a new customer file. Body: { client: string, projects?: Project[] }
  * Returns { slug, data }.
  */
 export async function POST(req: Request) {
@@ -29,9 +29,8 @@ export async function POST(req: Request) {
   const slug = slugify(client);
   const data: CustomerData = {
     client,
-    date: body.date ?? "",
-    activeSection: body.activeSection ?? 1,
-    answers: body.answers ?? {},
+    projects: body.projects ?? [],
+    activeProjectId: body.activeProjectId ?? null,
   };
 
   const saved = await writeCustomer(slug, data);

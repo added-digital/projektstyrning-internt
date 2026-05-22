@@ -1,0 +1,168 @@
+{
+  "client": "Tentipi",
+  "projects": [
+    {
+      "id": "p-1778683862998-8zron",
+      "name": "Öka konverting på hemsidan",
+      "template": "custom",
+      "status": "active",
+      "startDate": "2026-05-01",
+      "endDate": "2026-05-31",
+      "enabledSections": [
+        6
+      ],
+      "activeSection": 7,
+      "answers": {},
+      "checklist": [
+        {
+          "id": "domain",
+          "label": "Domän + DNS konfigurerat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "ssl",
+          "label": "SSL aktiverat",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "analytics",
+          "label": "Analytics installerat och testat",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "seo",
+          "label": "SEO meta-taggar + sitemap.xml på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "og",
+          "label": "Open Graph-bilder + favicon",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "gdpr",
+          "label": "Cookie-banner / GDPR-text klar",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "forms",
+          "label": "Formulär kopplade till rätt mottagare",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "404",
+          "label": "404-sida testad",
+          "done": false,
+          "category": "Innehåll"
+        },
+        {
+          "id": "redirects",
+          "label": "Redirects från gamla URL:er på plats",
+          "done": false,
+          "category": "SEO"
+        },
+        {
+          "id": "backup",
+          "label": "Backup-strategi konfigurerad",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "perf",
+          "label": "Lighthouse / Core Web Vitals godkända",
+          "done": false,
+          "category": "Utveckling"
+        },
+        {
+          "id": "browsers",
+          "label": "Testat i Chrome, Safari, Firefox, mobil",
+          "done": false,
+          "category": "Utveckling"
+        }
+      ],
+      "phases": [
+        {
+          "id": "ph-1778854354657-b6wws",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-17",
+          "comments": [
+            {
+              "id": "cm-1779035762679-dcv3g",
+              "text": "Färdigställa design för tältsidor och vanliga produkter",
+              "category": "Design",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1778854383772-jqj7z",
+          "type": "Utveckling",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-29",
+          "comments": [
+            {
+              "id": "cm-1779035788455-dteql",
+              "text": "Utveckla nya tältsidor + produktsidor",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
+            }
+          ]
+        },
+        {
+          "id": "ph-1779035828260-111r5",
+          "type": "Content",
+          "label": "",
+          "startDate": "2026-05-18",
+          "endDate": "2026-05-18",
+          "comments": [
+            {
+              "id": "cm-1779035887146-cmyw5",
+              "text": "Genomgång av design utifrån ett konverteringsperspektiv inför utveckling",
+              "category": "Content",
+              "assignees": [
+                "Gustav Lindwall"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
+      "weeklyNotes": [],
+      "allocations": [
+        {
+          "id": "al-1779440109425-0-8fz1u",
+          "member": "Albin Herbst",
+          "hoursPerWeek": 10,
+          "startDate": "2026-05-08",
+          "endDate": "2026-12-31"
+        },
+        {
+          "id": "al-1779459072130-m6182",
+          "member": "Per Albin Wilhelmsson",
+          "hoursPerWeek": 2,
+          "startDate": "2026-05-08",
+          "endDate": "2026-12-31"
+        }
+      ],
+      "updatedAt": "2026-05-13T14:24:51.218Z"
+    }
+  ],
+  "activeProjectId": "p-1778683862998-8zron",
+  "updatedAt": "2026-05-22T14:11:44.561Z"
+}

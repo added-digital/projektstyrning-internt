@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Toast } from "@/components/Toast";
 
 export const metadata: Metadata = {
-  title: "ADDED · Discovery",
-  description: "ADDED Discovery — internt verktyg för uppstartsmöten.",
+  title: "ADDED · Projektnav",
+  description: "ADDED Projektnav — internt verktyg för projektstyrning.",
 };
 
 export const viewport: Viewport = {
@@ -27,7 +28,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="app">{children}</div>
+        <Toast />
+      </body>
     </html>
   );
 }
