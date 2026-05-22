@@ -3005,6 +3005,9 @@ textarea.phase-comment-text-input {
 
 .phase-bar-wrapper:hover {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  /* Lyft hela stacking-contexten över andra barer så tooltipen
+     (z-index 20 inuti baren) hamnar ovanpå allt annat i timelinen. */
+  z-index: 30;
 }
 
 .phase-bar-wrapper:active { cursor: grabbing; }
@@ -3085,6 +3088,18 @@ textarea.phase-comment-text-input {
   left: 0;
   right: 0;
   height: 8px;
+}
+
+/* Flip nedåt — när det inte finns plats ovanför baren (toppen av viewport,
+   bakom sticky-headers). JS-detektering sätter klassen "below". */
+.phase-hover-tooltip.below {
+  bottom: auto;
+  top: calc(100% + 8px);
+}
+
+.phase-hover-tooltip.below::after {
+  top: auto;
+  bottom: 100%;
 }
 
 .phase-hover-header {
@@ -3211,6 +3226,65 @@ textarea.phase-comment-text-input {
   text-transform: none;
   letter-spacing: 0;
   color: var(--ink-dim);
+}
+
+/* Sammanställd stat-rad i hovern: uppgifter klara + tilldelade personer.
+   Visas alltid (även för tomma faser) så hovern faktiskt ger värde. */
+.phase-hover-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 11px;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-2);
+}
+
+.phase-hover-stat-empty {
+  color: var(--ink-mute);
+  font-style: italic;
+}
+
+.phase-hover-stat-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.phase-hover-stat-num {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.phase-hover-stat-sep {
+  color: var(--ink-dim);
+  margin: 0 1px;
+}
+
+.phase-hover-stat-label {
+  color: var(--ink-mute);
+  margin-left: 4px;
+}
+
+.phase-hover-stat-assignees {
+  color: var(--ink-mute);
+  font-size: 10px;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+}
+
+.phase-hover-item-overflow {
+  font-size: 10px;
+  color: var(--ink-mute);
+  padding: 4px 18px;
+  font-style: italic;
 }
 
 /* ---- Weekly note inside the phase hover tooltip -------------------- */

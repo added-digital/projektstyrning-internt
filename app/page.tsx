@@ -4,6 +4,7 @@ import {
   PointerEvent as ReactPointerEvent,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -2404,6 +2405,23 @@ function PhaseHoverTooltip({
   const [draft, setDraft] = useState(existingNote?.text ?? "");
   const textRef = useRef<HTMLTextAreaElement | null>(null);
 
+  // Flip tooltip below the bar when det inte finns plats ovanför.
+  // Mäter parent-rect (fas-stapelns position) och checkar mot sticky-headers
+  // + viewport-top. Om för litet utrymme uppåt — vänd nedåt.
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const [flipBelow, setFlipBelow] = useState(false);
+  useLayoutEffect(() => {
+    const el = tooltipRef.current;
+    if (!el) return;
+    const parent = el.parentElement;
+    if (!parent) return;
+    const parentRect = parent.getBoundingClientRect();
+    const tooltipHeight = el.offsetHeight;
+    // ~120px täcker toolbar (57) + sticky månads/vecko-headers (64).
+    const minTopSpace = 120;
+    setFlipBelow(parentRect.top - tooltipHeight - 12 < minTopSpace);
+  }, [hoveredWeekIdx, phase.comments?.length, existingNote?.text]);
+
   // Reset the editing draft when the hovered week changes (so we don't
   // accidentally save a draft against the wrong week).
   useEffect(() => {
@@ -2433,9 +2451,19 @@ function PhaseHoverTooltip({
     setEditing(false);
   }
 
+  const doneCount = comments.filter((c) => c.done).length;
+
+  // Vilka personer är tilldelade någon uppgift i fasen — sammanställning
+  const assigneeSet = new Set<TeamMember>();
+  for (const c of comments) {
+    for (const a of c.assignees) assigneeSet.add(a);
+  }
+  const assigneeList = Array.from(assigneeSet);
+
   return (
     <div
-      className="phase-hover-tooltip"
+      ref={tooltipRef}
+      className={`phase-hover-tooltip ${flipBelow ? "below" : ""}`}
       role="tooltip"
       onMouseEnter={onTooltipEnter}
       onMouseLeave={onTooltipLeave}
@@ -2447,6 +2475,30 @@ function PhaseHoverTooltip({
         />
         <span className="phase-hover-type">{phase.type}</span>
         {range && <span className="phase-hover-range">{range}</span>}
+      </div>
+
+      {/* Sammanställd stat-rad: uppgiftsstatus + tilldelade personer.
+          Detta är ett snabbt 1-line-utdrag av vad som händer i fasen, så
+          användaren får värde av hovern utan att behöva klicka. */}
+      <div className="phase-hover-stats">
+        {comments.length === 0 ? (
+          <span className="phase-hover-stat-empty">Inga uppgifter än</span>
+        ) : (
+          <span className="phase-hover-stat-count">
+            <span className="phase-hover-stat-num">{doneCount}</span>
+            <span className="phase-hover-stat-sep">/</span>
+            <span className="phase-hover-stat-num">{comments.length}</span>
+            <span className="phase-hover-stat-label">
+              {comments.length === 1 ? "uppgift klar" : "uppgifter klara"}
+            </span>
+          </span>
+        )}
+        {assigneeList.length > 0 && (
+          <span className="phase-hover-stat-assignees">
+            {assigneeList.slice(0, 3).map((m) => m.split(" ")[0]).join(", ")}
+            {assigneeList.length > 3 && ` +${assigneeList.length - 3}`}
+          </span>
+        )}
       </div>
 
       {week && (
@@ -2499,7 +2551,7 @@ function PhaseHoverTooltip({
 
       {comments.length > 0 && (
         <ul className="phase-hover-list">
-          {comments.map((c) => (
+          {comments.slice(0, 4).map((c) => (
             <li
               key={c.id}
               className={`phase-hover-item ${c.done ? "done" : ""}`}
@@ -2521,11 +2573,12 @@ function PhaseHoverTooltip({
               </div>
             </li>
           ))}
+          {comments.length > 4 && (
+            <li className="phase-hover-item-overflow">
+              +{comments.length - 4} {comments.length - 4 === 1 ? "uppgift till" : "uppgifter till"}
+            </li>
+          )}
         </ul>
-      )}
-
-      {!editing && (
-        <div className="phase-hover-hint">Klicka på stapeln för att redigera fasen</div>
       )}
     </div>
   );
