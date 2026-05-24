@@ -15,6 +15,7 @@ import {
   Project,
   ProjectAllocation,
   ProjectPhase,
+  projectStatusOrder,
   TeamMember,
   teamMembers,
   WeeklyNote,
@@ -369,11 +370,27 @@ function normalizeProject(p: Partial<Project> & { todos?: unknown }, idx: number
   const legacyTodos: LegacyTodo[] = Array.isArray(p.todos)
     ? (p.todos as LegacyTodo[])
     : [];
-  const validStatuses = new Set(["active", "paused", "done", "archived"]);
-  const status =
-    typeof p.status === "string" && validStatuses.has(p.status)
-      ? (p.status as Project["status"])
-      : "active";
+  // Forward-kompatibel status-normalisering: bevara ALLA icke-tomma string-
+  // värden istället för att tvinga okända till "active". Anledningen är att
+  // tidigare buggar (validStatuses-set som inte var synkad med ProjectStatus
+  // i lib/sections.ts) tyst tappade lead-status vid reload. Med den här
+  // strategin bevaras värdet på disk även om koden tillfälligt inte känner
+  // till statusen — och vi loggar en synlig warning så framtida bugg-spår
+  // blir uppenbara istället för tysta data-förluster.
+  const validStatuses = new Set<string>(projectStatusOrder);
+  let status: Project["status"];
+  if (typeof p.status === "string" && p.status.length > 0) {
+    if (!validStatuses.has(p.status)) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[storage] Unknown project.status="${p.status}" preserved as-is. ` +
+          `Add it to ProjectStatus in lib/sections.ts if it's intentional.`,
+      );
+    }
+    status = p.status as Project["status"];
+  } else {
+    status = "active";
+  }
   return {
     id: p.id ?? `p-${Date.now()}-${idx}-${Math.random().toString(36).slice(2, 7)}`,
     name: p.name ?? "",

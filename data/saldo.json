@@ -148,7 +148,7 @@
           "type": "Content",
           "label": "",
           "startDate": "2026-05-18",
-          "endDate": "2026-05-24",
+          "endDate": "2026-12-29",
           "comments": [
             {
               "id": "cm-1779035311333-8lxaf",
@@ -182,7 +182,43 @@
         }
       ],
       "weeklyNotes": [],
-      "allocations": [],
+      "allocations": [
+        {
+          "id": "al-1779629375231-w4p3u",
+          "member": "Per Albin Wilhelmsson",
+          "hoursPerWeek": 20,
+          "startDate": "2026-05-25",
+          "endDate": "2026-05-29"
+        },
+        {
+          "id": "al-1779629411344-7fdfl",
+          "member": "Gustav Lindwall",
+          "hoursPerWeek": 24,
+          "startDate": "2026-05-25",
+          "endDate": "2026-05-31"
+        },
+        {
+          "id": "al-1779629729625-qs4kg",
+          "member": "Albin Herbst",
+          "hoursPerWeek": 4,
+          "startDate": "2026-05-01",
+          "endDate": "2026-12-31"
+        },
+        {
+          "id": "al-1779629765441-xt5rb",
+          "member": "Gustav Lindwall",
+          "hoursPerWeek": 4,
+          "startDate": "2026-05-01",
+          "endDate": "2026-12-31"
+        },
+        {
+          "id": "al-1779632364618-uaj5t",
+          "member": "Albin Herbst",
+          "hoursPerWeek": 8,
+          "startDate": "2026-06-01",
+          "endDate": "2026-06-30"
+        }
+      ],
       "updatedAt": "2026-05-13T14:23:23.629Z"
     },
     {
@@ -401,6 +437,15 @@
                 "Albin Herbst"
               ],
               "done": false
+            },
+            {
+              "id": "cm-1779629905989-choyp",
+              "text": "Arbete med feedback + buggar",
+              "category": "Utveckling",
+              "assignees": [
+                "Albin Herbst"
+              ],
+              "done": false
             }
           ]
         },
@@ -444,5 +489,5 @@
     }
   ],
   "activeProjectId": "p-1778853395362-eum5b",
-  "updatedAt": "2026-05-22T14:30:49.120Z"
+  "updatedAt": "2026-05-24T14:22:18.121Z"
 }

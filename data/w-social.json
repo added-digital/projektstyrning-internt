@@ -9,14 +9,10 @@
       "startDate": "2026-05-18",
       "endDate": "2026-05-31",
       "enabledSections": [
-        7,
-        5,
-        8,
         6
       ],
       "activeSection": 7,
       "answers": {},
-      "notes": [],
       "checklist": [
         {
           "id": "seo-meta",
@@ -211,7 +207,7 @@
           "type": "Utveckling",
           "label": "",
           "startDate": "2026-05-27",
-          "endDate": "2026-06-17",
+          "endDate": "2026-06-15",
           "comments": [
             {
               "id": "cm-1779089315638-xfw7v",
@@ -225,9 +221,25 @@
           ]
         }
       ],
-      "weeklyNotes": []
+      "weeklyNotes": [],
+      "allocations": [
+        {
+          "id": "al-1779629955522-s3ty9",
+          "member": "David Saupe",
+          "hoursPerWeek": 30,
+          "startDate": "2026-05-25",
+          "endDate": "2026-06-17"
+        },
+        {
+          "id": "al-1779631232044-zx4ux",
+          "member": "David Saupe",
+          "hoursPerWeek": 10,
+          "startDate": "2026-05-25",
+          "endDate": "2026-05-29"
+        }
+      ]
     }
   ],
   "activeProjectId": "p-1779036312062-2naix",
-  "updatedAt": "2026-05-18T07:29:00.902Z"
+  "updatedAt": "2026-05-24T14:00:48.495Z"
 }

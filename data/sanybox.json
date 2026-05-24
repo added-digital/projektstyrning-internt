@@ -1,17 +1,17 @@
 {
-  "client": "Enneagram",
+  "client": "Sanybox",
   "projects": [
     {
-      "id": "p-1779040243627-h1xel",
-      "name": "Personlighetstest",
+      "id": "p-1779631999634-blh9b",
+      "name": "Transaktionssystem",
       "template": "webb",
-      "status": "active",
+      "status": "lead",
       "startDate": "",
       "endDate": "",
       "enabledSections": [
         6
       ],
-      "activeSection": 7,
+      "activeSection": 6,
       "answers": {},
       "checklist": [
         {
@@ -183,68 +183,11 @@
           "category": "Utveckling"
         }
       ],
-      "phases": [
-        {
-          "id": "ph-1779040256244-8fz1w",
-          "type": "Utveckling",
-          "label": "",
-          "startDate": "2026-05-01",
-          "endDate": "2026-05-28",
-          "comments": [
-            {
-              "id": "cm-1779040323880-6dun1",
-              "text": "Sprint inför lansering",
-              "category": "Utveckling",
-              "assignees": [
-                "David Saupe"
-              ],
-              "done": false
-            }
-          ]
-        },
-        {
-          "id": "ph-1779088256764-njygq",
-          "type": "Utveckling",
-          "label": "",
-          "startDate": "2026-06-01",
-          "endDate": "2026-06-30",
-          "comments": [
-            {
-              "id": "cm-1779631059845-unyfu",
-              "text": "Planaerat till 100-140 timmar",
-              "category": "Utveckling",
-              "assignees": [],
-              "done": false
-            }
-          ]
-        }
-      ],
+      "phases": [],
       "weeklyNotes": [],
-      "allocations": [
-        {
-          "id": "al-1779628953097-5iozk",
-          "member": "David Saupe",
-          "hoursPerWeek": 15,
-          "startDate": "2026-06-01",
-          "endDate": "2026-06-29"
-        },
-        {
-          "id": "al-1779629075534-7dhfy",
-          "member": "Oliver Lundkvist",
-          "hoursPerWeek": 2.5,
-          "startDate": "2026-05-31",
-          "endDate": "2026-06-29"
-        },
-        {
-          "id": "al-1779631290693-gj9aj",
-          "member": "Gustav Lindwall",
-          "hoursPerWeek": 8,
-          "startDate": "2026-05-29",
-          "endDate": "2026-05-29"
-        }
-      ]
+      "allocations": []
     }
   ],
-  "activeProjectId": "p-1779040243627-h1xel",
-  "updatedAt": "2026-05-24T14:23:07.429Z"
+  "activeProjectId": "p-1779631999634-blh9b",
+  "updatedAt": "2026-05-24T14:16:15.271Z"
 }

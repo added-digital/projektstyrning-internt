@@ -355,13 +355,25 @@ export function isoWeekString(d: Date): string {
 
 export type ProjectTemplate = "webb" | "sprint" | "custom";
 
-export type ProjectStatus = "active" | "paused" | "done" | "archived";
+export type ProjectStatus =
+  | "active"
+  | "lead"
+  | "paused"
+  | "done"
+  | "archived";
 
+/**
+ * Visningsordning i filter-rad och i sorteringen av projekten i arket.
+ * Lead ligger sist så lead-projekten alltid hamnar längst ned, vilket
+ * matchar förväntan att leads är "potentiella" och inte ska störa de
+ * aktiva projekten upptill.
+ */
 export const projectStatusOrder: readonly ProjectStatus[] = [
   "active",
   "paused",
   "done",
   "archived",
+  "lead",
 ] as const;
 
 export const projectStatusLabel: Record<ProjectStatus, string> = {
@@ -369,6 +381,7 @@ export const projectStatusLabel: Record<ProjectStatus, string> = {
   paused: "Pausad",
   done: "Klar",
   archived: "Arkiverad",
+  lead: "Lead",
 };
 
 /** All section IDs (the things you can enable/disable per project). */

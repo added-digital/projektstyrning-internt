@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const MONTHS_SV = [
@@ -130,6 +137,15 @@ export function DatePicker({
   const [viewYear, setViewYear] = useState(initial.getUTCFullYear());
   const [viewMonth, setViewMonth] = useState(initial.getUTCMonth());
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLButtonElement | null>(null);
+  const popupRef = useRef<HTMLDivElement | null>(null);
+  const [popupPos, setPopupPos] = useState<{
+    top: number;
+    left: number;
+    placement: "below" | "above";
+  } | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   // Sync the displayed month to the value when the picker opens
   useEffect(() => {
@@ -139,12 +155,51 @@ export function DatePicker({
     setViewMonth(d.getUTCMonth());
   }, [open, value, today]);
 
-  // Close on outside click
+  // Position the popup relative to the input button using viewport coords.
+  // Flip above when there isn't enough room below.
+  useLayoutEffect(() => {
+    if (!open) {
+      setPopupPos(null);
+      return;
+    }
+    function reposition() {
+      const input = inputRef.current;
+      if (!input) return;
+      const rect = input.getBoundingClientRect();
+      const popup = popupRef.current;
+      const popupH = popup?.offsetHeight ?? 320;
+      const popupW = popup?.offsetWidth ?? 296;
+      const margin = 8;
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const spaceAbove = rect.top;
+      const placeAbove =
+        spaceBelow < popupH + margin && spaceAbove > spaceBelow;
+      const top = placeAbove
+        ? Math.max(margin, rect.top - popupH - 6)
+        : Math.min(window.innerHeight - popupH - margin, rect.bottom + 6);
+      const left = Math.max(
+        margin,
+        Math.min(window.innerWidth - popupW - margin, rect.left),
+      );
+      setPopupPos({ top, left, placement: placeAbove ? "above" : "below" });
+    }
+    reposition();
+    window.addEventListener("scroll", reposition, true);
+    window.addEventListener("resize", reposition);
+    return () => {
+      window.removeEventListener("scroll", reposition, true);
+      window.removeEventListener("resize", reposition);
+    };
+  }, [open, viewYear, viewMonth]);
+
+  // Close on outside click — accounts for the portaled popup.
   useEffect(() => {
     if (!open) return;
     function onDocClick(e: MouseEvent) {
-      if (!wrapperRef.current) return;
-      if (!wrapperRef.current.contains(e.target as Node)) setOpen(false);
+      const target = e.target as Node;
+      if (wrapperRef.current && wrapperRef.current.contains(target)) return;
+      if (popupRef.current && popupRef.current.contains(target)) return;
+      setOpen(false);
     }
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
@@ -201,6 +256,7 @@ export function DatePicker({
       } ${open ? "open" : ""}`}
     >
       <button
+        ref={inputRef}
         type="button"
         className="date-picker-input"
         onClick={() => setOpen((o) => !o)}
@@ -218,11 +274,18 @@ export function DatePicker({
         </span>
       </button>
 
-      {open && (
+      {open && mounted && createPortal(
         <div
-          className="date-picker-popup"
+          ref={popupRef}
+          className={`date-picker-popup ${popupPos?.placement === "above" ? "placement-above" : "placement-below"}`}
           role="dialog"
           aria-label="Välj datum"
+          style={{
+            position: "fixed",
+            top: popupPos?.top ?? -9999,
+            left: popupPos?.left ?? -9999,
+            visibility: popupPos ? "visible" : "hidden",
+          }}
         >
           <header className="date-picker-header">
             <button
@@ -304,7 +367,8 @@ export function DatePicker({
               </button>
             )}
           </footer>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

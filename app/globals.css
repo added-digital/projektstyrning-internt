@@ -1611,6 +1611,9 @@ textarea:focus {
 .filter-group .filter-pill.status-pill.on.status-archived {
   background: var(--ink-mute);
 }
+.filter-group .filter-pill.status-pill.on.status-lead {
+  background: var(--phase-strategi);
+}
 
 /* Filter dropdown (Kund / Visar) */
 .filter-dropdown {
@@ -2798,6 +2801,11 @@ textarea.phase-comment-text-input {
   color: var(--ink-mute);
 }
 
+.project-status-pill.status-lead {
+  background: var(--phase-strategi-soft);
+  color: var(--phase-strategi);
+}
+
 .status-chips {
   display: inline-flex;
   flex-wrap: wrap;
@@ -2846,6 +2854,12 @@ textarea.phase-comment-text-input {
   background: var(--ink-mute);
   color: var(--bg);
   border-color: var(--ink-mute);
+}
+
+.status-chip.on.status-lead {
+  background: var(--phase-strategi);
+  color: var(--bg);
+  border-color: var(--phase-strategi);
 }
 
 .status-chip.compact {
@@ -2963,6 +2977,19 @@ textarea.phase-comment-text-input {
   opacity: 0.6;
 }
 
+/* Samma behandling för allokerings-rader: när person-filter är på dimmas
+   andra personers staplar precis som fas-rader utan matchning. */
+.planering-row-team-alloc.dimmed .team-alloc-label {
+  opacity: 0.35;
+}
+.planering-row-team-alloc.dimmed .team-alloc-bar {
+  opacity: 0.2;
+  filter: saturate(0.5);
+}
+.planering-row-team-alloc.dimmed .team-alloc-bar:hover {
+  opacity: 0.6;
+}
+
 /* Phase row track with grid lines */
 .phase-row-cells {
   background-color: var(--bg);
@@ -3017,6 +3044,39 @@ textarea.phase-comment-text-input {
 .phase-bar-wrapper.phase-design { background: var(--phase-design); }
 .phase-bar-wrapper.phase-utveckling { background: var(--phase-utveckling); }
 .phase-bar-wrapper.phase-projektstyrning { background: var(--phase-projektstyrning); }
+
+/* ---- Historik-fade -----------------------------------------------------
+   Faser/allokeringar som tog slut för flera veckor sedan dimmas ner så att
+   blicken landar på det som är aktuellt och framåt. Senaste 2 veckorna är
+   alltid fullt synliga. Tröskel & klasser sätts i pastWeekFadeClass(). */
+.phase-bar-wrapper.is-faded-soft,
+.team-alloc-bar.is-faded-soft {
+  opacity: 0.55;
+}
+.phase-bar-wrapper.is-faded-strong,
+.team-alloc-bar.is-faded-strong {
+  opacity: 0.3;
+}
+/* På hover lyfter vi tillbaka opaciteten så användaren kan inspektera
+   gamla staplar utan att behöva scrolla bort fadeen. */
+.phase-bar-wrapper.is-faded-soft:hover,
+.phase-bar-wrapper.is-faded-strong:hover,
+.team-alloc-bar.is-faded-soft:hover,
+.team-alloc-bar.is-faded-strong:hover {
+  opacity: 1;
+}
+/* Vecko-rubriker i sticky header */
+.planering-week-cell.is-faded-soft {
+  color: var(--ink-mute);
+}
+.planering-week-cell.is-faded-strong {
+  color: var(--ink-dim);
+}
+/* "current"-veckans markör ska aldrig vara dimmad även om den ligger i
+   en faded zon (kan inte hända i praktiken, men säkert är säkert). */
+.planering-week-cell.current {
+  color: var(--ink);
+}
 
 /* Hover: no opacity change — content stays fully readable.
    Resize handles brighten and cursor becomes grab, which is enough affordance. */
@@ -3695,16 +3755,17 @@ footer {
 }
 
 .date-picker-popup {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  z-index: 200;
+  /* Portaled to <body>; inline style sets position/top/left.
+     z-index must beat both .phase-inline-popover and .project-inline-popover (z:100). */
+  z-index: 300;
   background: var(--bg-elev);
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   padding: 12px;
+  box-shadow: var(--elev-3);
   animation: fadeIn 140ms ease-out;
-  min-width: 296px;
+  width: 296px;
+  box-sizing: border-box;
 }
 
 .date-picker-header {

@@ -193,6 +193,22 @@ function currentWeekIndex(weeks: WeekInfo[], now: Date): number {
   return -1;
 }
 
+/**
+ * Klassificerar hur "gammal" en vecka (eller slutet av en stapel) är
+ * jämfört med innevarande vecka. Används för att tona ner historik:
+ * - "" = innevarande + 2 senaste veckorna är fullt synliga
+ * - "is-faded-soft" = 3–6 veckor sedan
+ * - "is-faded-strong" = 7+ veckor sedan
+ * Om todayIdx < 0 (idag inte i visad period, t.ex. nästa år) returneras "".
+ */
+function pastWeekFadeClass(weekIdx: number, todayIdx: number): string {
+  if (todayIdx < 0) return "";
+  const delta = todayIdx - weekIdx;
+  if (delta <= 2) return "";
+  if (delta <= 6) return "is-faded-soft";
+  return "is-faded-strong";
+}
+
 interface RangeResult {
   startIdx: number;
   endIdx: number;
@@ -322,7 +338,7 @@ export default function PlaneringPage() {
   const [assigneeFilter, setAssigneeFilter] = useState<CommentAssignee>("");
   const [customerFilter, setCustomerFilter] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<Set<ProjectStatus>>(
-    () => new Set(["active"]),
+    () => new Set(["active", "lead"]),
   );
   const [newProjectFor, setNewProjectFor] = useState<string | null>(null);
   const [newCustomerOpen, setNewCustomerOpen] = useState(false);
@@ -800,8 +816,14 @@ export default function PlaneringPage() {
         rows.push({ customer: c.client, customerSlug: slug, project: p });
       }
     }
+    // Primärt: leads sist (rank 1), allt annat först (rank 0).
+    // Sekundärt: alfabetiskt på kund, sedan projektnamn.
+    function statusRank(p: { status?: ProjectStatus }): number {
+      return (p.status ?? "active") === "lead" ? 1 : 0;
+    }
     rows.sort(
       (a, b) =>
+        statusRank(a.project) - statusRank(b.project) ||
         a.customer.localeCompare(b.customer, "sv") ||
         a.project.name.localeCompare(b.project.name, "sv"),
     );
@@ -825,12 +847,14 @@ export default function PlaneringPage() {
     [weeks, allProjectRows],
   );
 
-  // Aktiva projekt = de som faktiskt räknas mot beläggningen (status active).
-  // Listas för inline-editorn när en personrad expanderas.
+  // Projekt som räknas mot beläggningen — både "active" och "lead". Listas
+  // för inline-editorn när en personrad expanderas, så användaren kan koppla
+  // allokeringar till både pågående och potentiella projekt.
   const activeProjectRows: ProjectRow[] = useMemo(() => {
-    return allProjectRows.filter(
-      (r) => (r.project.status ?? "active") === "active",
-    );
+    return allProjectRows.filter((r) => {
+      const s = r.project.status ?? "active";
+      return s === "active" || s === "lead";
+    });
   }, [allProjectRows]);
 
   const customerOptions = useMemo(
@@ -1052,7 +1076,7 @@ export default function PlaneringPage() {
                       (weekPopover && weekPopover.week.weekNum === w.weekNum)
                         ? "selected"
                         : ""
-                    }`}
+                    } ${pastWeekFadeClass(i, todayIdx)}`}
                     onClick={(e) => {
                       const rect = e.currentTarget.getBoundingClientRect();
                       setWeekPopover({
@@ -1649,10 +1673,16 @@ function ProjectGroup({
         ))
       ))}
 
-      {/* Allokeringar — en rad per person på projektet, med dragbar stapel. */}
+      {/* Allokeringar — en rad per person på projektet, med dragbar stapel.
+          Grupperas per person (samma namn alltid under varandra), inom gruppen
+          sorteras på startdatum. */}
       {!collapsed && allocations
         .slice()
-        .sort((a, b) => a.startDate.localeCompare(b.startDate))
+        .sort((a, b) => {
+          const byMember = a.member.localeCompare(b.member, "sv");
+          if (byMember !== 0) return byMember;
+          return a.startDate.localeCompare(b.startDate);
+        })
         .map((allocation) => {
           const ma: MemberAlloc = {
             customer: row.customer,
@@ -1661,6 +1691,14 @@ function ProjectGroup({
             allocation,
           };
           const isEditing = editingAllocation === allocation.id;
+          // Samma logik som för fas-rader: när assignee-filtret pekar på en
+          // person dimmas övriga personers allokeringar. Fas-typsfilter
+          // (Strategi/Content/…) lämnar allokeringar orörda eftersom de
+          // saknar fas-typ.
+          const dimmed =
+            !!assigneeFilter &&
+            !isPhaseCategoryAssignee(assigneeFilter) &&
+            allocation.member !== assigneeFilter;
           return (
             <TeamAllocRow
               key={`alloc-${allocation.id}`}
@@ -1668,6 +1706,7 @@ function ProjectGroup({
               weeks={weeks}
               todayIdx={todayIdx}
               isEditing={isEditing}
+              dimmed={dimmed}
               onOpenEdit={() => setEditingAllocation(allocation.id)}
               onCloseEdit={() => setEditingAllocation(null)}
               onPatch={(patch) =>
@@ -2243,7 +2282,7 @@ function PhaseTimelineRow({
 
         {range ? (
           <div
-            className={`phase-bar-wrapper phase-${phase.type.toLowerCase()}`}
+            className={`phase-bar-wrapper phase-${phase.type.toLowerCase()} ${pastWeekFadeClass(range.endIdx, todayIdx)}`}
             style={{
               gridColumn: `${range.startIdx + 1} / ${range.endIdx + 2}`,
               gridRow: 1,
@@ -3737,6 +3776,7 @@ function TeamAllocRow({
   weeks,
   todayIdx,
   isEditing,
+  dimmed = false,
   onOpenEdit,
   onCloseEdit,
   onPatch,
@@ -3747,6 +3787,7 @@ function TeamAllocRow({
   weeks: WeekInfo[];
   todayIdx: number;
   isEditing: boolean;
+  dimmed?: boolean;
   onOpenEdit: () => void;
   onCloseEdit: () => void;
   onPatch: (patch: Partial<ProjectAllocation>) => void;
@@ -3840,7 +3881,9 @@ function TeamAllocRow({
   }
 
   return (
-    <div className="planering-row planering-row-team-alloc">
+    <div
+      className={`planering-row planering-row-team-alloc ${dimmed ? "dimmed" : ""}`}
+    >
       <div className="planering-row-label team-alloc-label">
         <span className="team-alloc-customer">{ma.allocation.member}</span>
       </div>
@@ -3856,7 +3899,7 @@ function TeamAllocRow({
         )}
         {draftRange && (
           <div
-            className="team-alloc-bar"
+            className={`team-alloc-bar ${pastWeekFadeClass(draftRange.endIdx, todayIdx)}`}
             style={{
               gridColumn: `${draftRange.startIdx + 1} / ${draftRange.endIdx + 2}`,
               gridRow: 1,

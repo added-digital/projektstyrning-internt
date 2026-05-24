@@ -9,9 +9,9 @@ import {
  * Beläggningsberäkning: summerar timmar/vecka per teammedlem över alla aktiva
  * projekt vars datumspann överlappar varje ISO-vecka.
  *
- * Endast projekt med status === "active" (eller utan status, vilket
- * defaultar till active) räknas mot beläggningen. Paused/done/archived
- * påverkar inte siffrorna.
+ * Räknade statusar: "active" och "lead" — leads är potentiella projekt vars
+ * påverkan på planeringen vi vill kunna se. Paused/done/archived påverkar
+ * inte siffrorna.
  */
 
 export interface ProjectRowLike {
@@ -40,10 +40,12 @@ export interface WeekBooking {
   byProject: WeekBookingItem[];
 }
 
-/** Är ett projekt "aktivt" så att dess allokeringar ska räknas? */
+/** Är ett projekt "aktivt" så att dess allokeringar ska räknas?
+ * Både "active" och "lead" räknas — leads visas i arket som potentiell
+ * planering och vi vill se hur de skulle påverka beläggningen. */
 function isCountedTowardLoad(project: Project): boolean {
   const status = project.status ?? "active";
-  return status === "active";
+  return status === "active" || status === "lead";
 }
 
 /** Inklusiv overlap mellan en ISO-vecka och en allokerings tidsperiod. */
