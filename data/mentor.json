@@ -1,13 +1,13 @@
 {
-  "client": "Nordiska kök",
+  "client": "Mentor",
   "projects": [
     {
-      "id": "p-1779631956434-jsejj",
-      "name": "Hemsida",
+      "id": "p-1779694313829-7tf2f",
+      "name": "Uppdateringar Hemsida",
       "template": "webb",
-      "status": "lead",
-      "startDate": "",
-      "endDate": "",
+      "status": "active",
+      "startDate": "2026-05-25",
+      "endDate": "2026-05-29",
       "enabledSections": [
         6
       ],
@@ -183,11 +183,38 @@
           "category": "Utveckling"
         }
       ],
-      "phases": [],
+      "phases": [
+        {
+          "id": "ph-1779697637322-j8cuh",
+          "type": "Design",
+          "label": "",
+          "startDate": "2026-05-25",
+          "endDate": "2026-05-31",
+          "comments": [
+            {
+              "id": "cm-1779697666152-zwa27",
+              "text": "Design och utveckling ny hemsida",
+              "category": "Design",
+              "assignees": [
+                "Per Albin Wilhelmsson"
+              ],
+              "done": false
+            }
+          ]
+        }
+      ],
       "weeklyNotes": [],
-      "allocations": []
+      "allocations": [
+        {
+          "id": "al-1779697679086-zsws2",
+          "member": "David Saupe",
+          "hoursPerWeek": 20,
+          "startDate": "2026-05-25",
+          "endDate": "2026-05-29"
+        }
+      ]
     }
   ],
-  "activeProjectId": "p-1779631956434-jsejj",
-  "updatedAt": "2026-05-25T07:18:29.278Z"
+  "activeProjectId": "p-1779694313829-7tf2f",
+  "updatedAt": "2026-05-25T08:28:13.198Z"
 }

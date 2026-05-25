@@ -149,7 +149,7 @@
           "type": "Utveckling",
           "label": "",
           "startDate": "2026-06-09",
-          "endDate": "2026-06-30",
+          "endDate": "2026-06-26",
           "comments": [
             {
               "id": "cm-1779035235517-r3wje",
@@ -227,5 +227,5 @@
     }
   ],
   "activeProjectId": "p-1778684393624-oj3ny",
-  "updatedAt": "2026-05-24T14:18:29.780Z"
+  "updatedAt": "2026-05-25T09:00:07.091Z"
 }

@@ -1627,28 +1627,13 @@ function ProjectGroup({
         />
       )}
       {!collapsed && (phases.length === 0 ? (
-        <div className="planering-row planering-row-phase planering-row-empty">
-          <div className="planering-row-label">
-            <button
-              type="button"
-              className="phase-empty-hint-btn"
-              onClick={onSelectProject}
-            >
-              Inga faser. Klicka för att lägga till.
-            </button>
-          </div>
-          <div className="planering-row-cells">
-            {todayIdx >= 0 && (
-              <div
-                className="planering-today-line"
-                style={{
-                  gridColumn: `${todayIdx + 1} / ${todayIdx + 2}`,
-                  gridRow: 1,
-                }}
-              />
-            )}
-          </div>
-        </div>
+        <EmptyPhaseRow
+          weeks={weeks}
+          todayIdx={todayIdx}
+          onOpenCreatePopover={(weekIdx, anchorX, anchorY) =>
+            setCreatePopover({ weekIdx, anchorX, anchorY })
+          }
+        />
       ) : (
         phases.map((phase) => (
           <PhaseTimelineRow
@@ -1759,6 +1744,76 @@ function ProjectGroup({
 }
 
 // ---- Quick-create popover --------------------------------------------------
+
+/**
+ * Tom fas-rad som visas när projektet saknar faser. Spegelar
+ * PhaseTimelineRow:s hover-+-affordans utan att rita någon stapel — så
+ * användaren kan klicka var som helst i veckorastret och öppna
+ * QuickCreatePopover för att skapa sin första fas.
+ */
+function EmptyPhaseRow({
+  weeks,
+  todayIdx,
+  onOpenCreatePopover,
+}: {
+  weeks: WeekInfo[];
+  todayIdx: number;
+  onOpenCreatePopover: (weekIdx: number, anchorX: number, anchorY: number) => void;
+}) {
+  const [hoveredCreateWeek, setHoveredCreateWeek] = useState<number | null>(null);
+  return (
+    <div className="planering-row planering-row-phase planering-row-empty-phases">
+      <div className="planering-row-label phase-row-label phase-row-label-empty">
+        {/* Avsiktligt tom — vi vill bara ha en rastad rad att hovra i. */}
+      </div>
+      <div
+        className="planering-row-cells phase-row-cells phase-row-cells-hoverable"
+        onMouseMove={(e) => {
+          if (e.target !== e.currentTarget) {
+            setHoveredCreateWeek(null);
+            return;
+          }
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const idx = Math.floor(x / WEEK_WIDTH);
+          if (idx >= 0 && idx < weeks.length) setHoveredCreateWeek(idx);
+          else setHoveredCreateWeek(null);
+        }}
+        onMouseLeave={() => setHoveredCreateWeek(null)}
+        onClick={(e) => {
+          if (e.target !== e.currentTarget) return;
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const idx = Math.floor(x / WEEK_WIDTH);
+          if (idx < 0 || idx >= weeks.length) return;
+          onOpenCreatePopover(idx, e.clientX, e.clientY + 12);
+        }}
+      >
+        {todayIdx >= 0 && (
+          <div
+            className="planering-today-line"
+            style={{
+              gridColumn: `${todayIdx + 1} / ${todayIdx + 2}`,
+              gridRow: 1,
+            }}
+          />
+        )}
+        {hoveredCreateWeek !== null && (
+          <div
+            className="cell-create-plus"
+            style={{
+              gridColumn: `${hoveredCreateWeek + 1} / ${hoveredCreateWeek + 2}`,
+              gridRow: 1,
+            }}
+            aria-hidden
+          >
+            <Plus size={11} strokeWidth={2.5} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 /**
  * Liten popover som öppnas vid klick på en tom cell i project-header.

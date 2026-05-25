@@ -2618,20 +2618,12 @@ textarea.phase-comment-text-input {
   border-color: var(--line-strong);
 }
 
-.phase-empty-hint-btn {
-  background: transparent;
-  border: none;
-  color: var(--ink-dim);
-  font-style: italic;
-  font-size: 11px;
-  cursor: pointer;
-  padding: 0;
-  font-family: var(--sans);
-  text-align: left;
-  transition: color var(--t);
+/* Empty-state phase row visas när projektet saknar faser. Beter sig som en
+   vanlig phase-row med hover-+, men labelen är tom. */
+.planering-row-empty-phases .phase-row-label-empty {
+  /* Reserverar plats utan att rita något. */
+  min-height: var(--phase-row-h);
 }
-
-.phase-empty-hint-btn:hover { color: var(--ink-mute); }
 
 /* ---- Modal forms (Ny kund / Nytt projekt) -------------------------- */
 
@@ -3475,9 +3467,6 @@ textarea.phase-comment-text-input {
   gap: 12px;
 }
 
-.planering-row-empty .planering-row-label {
-  background: var(--bg);
-}
 
 /* Phase legend in header */
 .phase-legend {

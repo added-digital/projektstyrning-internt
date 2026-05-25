@@ -92,7 +92,7 @@
           "id": "ph-1778854071207-9gaxd",
           "type": "Strategi",
           "label": "",
-          "startDate": "2026-05-01",
+          "startDate": "2026-05-05",
           "endDate": "2026-05-27",
           "comments": [
             {
@@ -454,15 +454,14 @@
           "type": "Utveckling",
           "label": "",
           "startDate": "2026-05-26",
-          "endDate": "2026-06-26",
+          "endDate": "2026-05-28",
           "comments": [
             {
-              "id": "cm-1779035653465-lcp82",
-              "text": "Planerat arbete med OS",
+              "id": "cm-1779693853932-32gl0",
+              "text": "Rågivningsfunktionen",
               "category": "Utveckling",
               "assignees": [
-                "Albin Herbst",
-                "Per Albin Wilhelmsson"
+                "Albin Herbst"
               ],
               "done": false
             }
@@ -489,5 +488,5 @@
     }
   ],
   "activeProjectId": "p-1778853395362-eum5b",
-  "updatedAt": "2026-05-24T14:22:18.121Z"
+  "updatedAt": "2026-05-25T07:24:26.029Z"
 }

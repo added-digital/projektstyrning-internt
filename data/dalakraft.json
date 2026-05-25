@@ -1,9 +1,9 @@
 {
-  "client": "Nordiska kök",
+  "client": "Dalakraft",
   "projects": [
     {
-      "id": "p-1779631956434-jsejj",
-      "name": "Hemsida",
+      "id": "p-1779693384019-s3hy1",
+      "name": "Annonsering",
       "template": "webb",
       "status": "lead",
       "startDate": "",
@@ -188,6 +188,6 @@
       "allocations": []
     }
   ],
-  "activeProjectId": "p-1779631956434-jsejj",
-  "updatedAt": "2026-05-25T07:18:29.278Z"
+  "activeProjectId": "p-1779693384019-s3hy1",
+  "updatedAt": "2026-05-25T07:16:27.419Z"
 }
